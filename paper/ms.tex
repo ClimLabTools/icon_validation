@@ -1,0 +1,324 @@
+%% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
+%%
+%% Journal: Geoscientific Model Development (GMD)
+%%
+%% To compile this manuscript, you need the Copernicus LaTeX class files.
+%% Download the latest template package from:
+%% https://publications.copernicus.org/for_authors/manuscript_preparation.html
+%%
+%% Place copernicus.cls and copernicus.bst in this directory before compiling.
+%%
+%% Compile with:
+%%   pdflatex ms.tex
+%%   bibtex ms
+%%   pdflatex ms.tex
+%%   pdflatex ms.tex
+
+\documentclass[gmd, manuscript]{copernicus}
+
+\begin{document}
+
+\title{ICON Validation with Observations: a Python-based framework for
+  systematic evaluation of the ICON atmospheric model}
+
+%% Author list and affiliations
+%% Use \Author[affil_number]{First name}{Last name}
+%% Use \affil[number]{Institution, City, Country}
+
+\Author[1]{}{[Author 1]}
+\Author[1,2]{}{[Author 2]}
+
+\affil[1]{[Institution 1, City, Country]}
+\affil[2]{[Institution 2, City, Country]}
+
+%% Running title (max 60 characters) and running author (max 30 characters)
+\runningtitle{ICON Validation with Observations}
+\runningauthor{[Author 1] et al.}
+
+%% Correspondence details
+\correspondence{[Author 1] ([email@institution.edu])}
+
+%% Dates -- leave blank until submission/peer review
+\received{}
+\pubdiscuss{}
+\revised{}
+\accepted{}
+\published{}
+
+%% These dates will be inserted by Copernicus Publications during production
+\firstpage{1}
+
+\maketitle
+
+%% ============================================================
+%% ABSTRACT
+%% ============================================================
+\begin{abstract}
+The ICOsahedral Non-hydrostatic (ICON) model is a next-generation
+atmospheric general circulation model jointly developed by the German
+Weather Service (DWD) and the Max Planck Institute for Meteorology (MPI-M).
+Systematic validation of ICON simulations against observations is essential
+for assessing model performance and guiding further model development.
+Here we present \texttt{icon\_validation}, an open-source Python framework
+that provides a standardised, reproducible workflow for evaluating ICON
+model output against a variety of observational datasets.
+The framework supports comparisons of standard atmospheric variables
+including temperature, precipitation, wind speed and cloud cover across
+multiple temporal and spatial scales.
+We describe the design principles of the software, illustrate its use with
+selected validation examples, and discuss its role within a broader model
+development cycle.
+\end{abstract}
+
+%% ============================================================
+%% INTRODUCTION
+%% ============================================================
+\introduction
+
+Numerical weather and climate models require continuous evaluation against
+observations to identify systematic biases, diagnose model deficiencies and
+track the impact of model improvements over successive development cycles.
+The ICOsahedral Non-hydrostatic (ICON) model \citep{zaengl2015icon} is
+used operationally by the German Weather Service (DWD) for numerical weather
+prediction and by the Max Planck Institute for Meteorology (MPI-M) for
+climate research.
+Given the wide range of applications and the rapid development pace of ICON,
+there is a clear need for a flexible, community-accessible validation
+framework.
+
+While general model evaluation tools such as ESMValTool
+\citep{righi2020esmvaltool} and ICARE-NG exist, dedicated workflows that
+are tightly integrated with the ICON data format and metadata conventions
+can greatly reduce the overhead for ICON developers and users.
+The \texttt{icon\_validation} package aims to fill this gap by providing
+a lightweight, extensible framework built on well-established scientific
+Python libraries (NumPy, xarray, Matplotlib, cartopy).
+
+The remainder of this paper is structured as follows.
+Section~\ref{sec:description} describes the software design and
+implementation.
+Section~\ref{sec:validation} presents selected validation results
+demonstrating the capabilities of the framework.
+Section~\ref{sec:conclusions} summarises the main conclusions and
+outlines planned future developments.
+
+%% ============================================================
+%% SOFTWARE DESCRIPTION
+%% ============================================================
+\section{Software description}
+\label{sec:description}
+
+\subsection{Design principles}
+
+The \texttt{icon\_validation} framework follows several design principles
+that are intended to maximise usability, reproducibility and
+maintainability:
+
+\begin{itemize}
+  \item \textbf{Modularity.}  Individual validation tasks (data ingestion,
+        regridding, statistical analysis, plotting) are implemented as
+        independent, reusable components.
+  \item \textbf{Reproducibility.}  All validation workflows are driven by
+        plain-text configuration files so that results can be reproduced
+        from a single command.
+  \item \textbf{Open standards.}  The framework relies exclusively on
+        community-standard file formats (NetCDF, GRIB2) and Python
+        packages available through conda-forge.
+  \item \textbf{Scalability.}  Lazy loading via xarray and Dask enables
+        processing of large multi-year datasets without loading all data
+        into memory simultaneously.
+\end{itemize}
+
+\subsection{Framework architecture}
+
+\subsubsection{Input data handling}
+
+ICON produces output on an unstructured triangular grid.
+The framework reads ICON NetCDF output directly using xarray and applies
+an optional remapping step to a regular latitude--longitude grid using
+CDO (Climate Data Operators) or the \texttt{xesmf} package prior to
+comparison with observational data.
+
+\subsubsection{Observational reference datasets}
+
+The following observational and reanalysis datasets are currently supported:
+
+\begin{itemize}
+  \item ERA5 reanalysis \citep{hersbach2020era5}
+  \item GPCP monthly precipitation \citep{adler2018gpcp}
+  \item CERES-EBAF radiation budget \citep{loeb2018ceres}
+  \item IGRA radiosonde archive
+  \item SYNOP surface station data
+\end{itemize}
+
+Support for additional datasets can be added by implementing the
+\texttt{ObsDataset} base class interface.
+
+\subsubsection{Statistical diagnostics}
+
+For each variable and dataset pair the framework computes a standard set of
+scalar metrics including the mean bias, root-mean-square error (RMSE),
+pattern correlation coefficient and normalised standard deviation.
+These metrics are assembled into a Taylor diagram \citep{taylor2001taylor}
+for visual summary.
+Regional and seasonal breakdowns are also available.
+
+\subsubsection{Visualisation}
+
+Validation results are rendered to publication-quality figures using
+Matplotlib and cartopy.
+A dedicated HTML report is optionally generated, aggregating all diagnostic
+plots for easy browsing.
+
+\subsection{Installation and dependencies}
+
+The package is available on GitHub
+(\url{https://github.com/ClimLabTools/icon_validation}) and can be
+installed using \texttt{pip}:
+\begin{verbatim}
+pip install icon-validation
+\end{verbatim}
+or via conda:
+\begin{verbatim}
+conda install -c conda-forge icon-validation
+\end{verbatim}
+
+The main dependencies are Python ($\geq$\,3.9), NumPy, xarray, Matplotlib,
+cartopy, and CDO (optional, for remapping).
+
+%% ============================================================
+%% VALIDATION EXAMPLES
+%% ============================================================
+\section{Validation examples}
+\label{sec:validation}
+
+\subsection{Experimental setup}
+
+To illustrate the capabilities of \texttt{icon\_validation} we evaluate
+a 10-year ICON-AES atmosphere-only simulation at approximately 80\,km
+horizontal resolution.
+The simulation was forced with prescribed sea surface temperatures from
+the HadISST dataset and covers the period 2010--2019.
+
+\subsection{Near-surface temperature}
+
+Figure~\ref{fig:temp_bias} shows the annual-mean near-surface (2\,m)
+temperature bias of ICON relative to ERA5.
+The overall global mean bias is [X]\,K, within the range of previously
+published ICON results \citep{giorgetta2018icon}.
+
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{figures/temp_bias.pdf}
+  \caption{Annual-mean 2\,m temperature bias (ICON minus ERA5, K) for
+           the 2010--2019 period.}
+  \label{fig:temp_bias}
+\end{figure}
+
+\subsection{Precipitation}
+
+The spatial pattern of annual-mean precipitation is evaluated against the
+GPCP climatology (Fig.~\ref{fig:precip_bias}).
+ICON captures the major precipitation regimes, including the
+inter-tropical convergence zone (ITCZ) and the storm track regions,
+though a dry bias is apparent over the Maritime Continent.
+
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{figures/precip_bias.pdf}
+  \caption{Annual-mean precipitation bias (ICON minus GPCP,
+           mm\,day$^{-1}$) for the 2010--2019 period.}
+  \label{fig:precip_bias}
+\end{figure}
+
+\subsection{Taylor diagram summary}
+
+Figure~\ref{fig:taylor} shows a Taylor diagram summarising the
+performance of ICON for a range of atmospheric variables.
+[Discuss Taylor diagram results here.]
+
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{figures/taylor_diagram.pdf}
+  \caption{Taylor diagram for key atmospheric variables evaluated
+           against ERA5 and GPCP.}
+  \label{fig:taylor}
+\end{figure}
+
+%% ============================================================
+%% CONCLUSIONS
+%% ============================================================
+\conclusions
+
+We have presented \texttt{icon\_validation}, a Python-based framework for
+systematic evaluation of the ICON atmospheric model against observations.
+The framework provides a modular, reproducible workflow covering data
+ingestion, regridding, statistical analysis and visualisation.
+Selected validation examples demonstrate that the framework correctly
+identifies known ICON biases and is capable of producing publication-quality
+diagnostics.
+
+Future development priorities include:
+\begin{itemize}
+  \item Extension to ocean and land-surface components of the ICON model
+        family (ICON-O, ICON-Land);
+  \item Integration with the ICON model test suite for continuous
+        performance monitoring;
+  \item Support for ensemble validation and multi-model comparison;
+  \item A web-based interactive dashboard.
+\end{itemize}
+
+The source code, documentation and issue tracker are hosted on GitHub at
+\url{https://github.com/ClimLabTools/icon_validation}.
+Community contributions are welcome via the GitHub pull-request workflow.
+
+%% ============================================================
+%% CODE AVAILABILITY
+%% ============================================================
+\codeavailability{The \texttt{icon\_validation} source code is freely
+available under the MIT licence at
+\url{https://github.com/ClimLabTools/icon_validation}
+(last access: [date]).
+The version used to produce the results in this paper is archived at
+\url{https://doi.org/[ZENODO_DOI]} \citep{icon_validation_code}.}
+
+%% ============================================================
+%% DATA AVAILABILITY
+%% ============================================================
+\dataavailability{ERA5 data are available from the Copernicus Climate
+Change Service Climate Data Store
+(\url{https://cds.climate.copernicus.eu}, \citealt{hersbach2020era5}).
+GPCP precipitation data are available from
+\url{https://psl.noaa.gov/data/gridded/data.gpcp.html}
+\citep{adler2018gpcp}.
+CERES-EBAF data are available from
+\url{https://ceres.larc.nasa.gov/data/} \citep{loeb2018ceres}.}
+
+%% ============================================================
+%% AUTHOR CONTRIBUTIONS
+%% ============================================================
+\authorcontribution{[Author 1] conceived the study and led the software
+development.
+[Author 2] contributed to the observational data handling and validation
+diagnostics.
+All authors contributed to writing and revising the manuscript.}
+
+%% ============================================================
+%% COMPETING INTERESTS
+%% ============================================================
+\competinginterests{The authors declare that they have no conflict of
+interest.}
+
+%% ============================================================
+%% ACKNOWLEDGEMENTS
+%% ============================================================
+\begin{acknowledgements}
+The authors thank [names] for helpful discussions.
+[Funding information and HPC allocation acknowledgements go here.]
+This work used resources of [HPC centre].
+\end{acknowledgements}
+
+%% ============================================================
+%% REFERENCES
+%% ============================================================
+\bibliographystyle{copernicus}
+\bibliography{references}
+
+\end{document}
