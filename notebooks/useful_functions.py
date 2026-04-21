@@ -4,6 +4,6 @@ def format_datetime64(val, format_str='%Y-%m-%d %H:%M:%S'):
     dt = pd.to_datetime(str(val))
     return dt.strftime(format_str)
 
-def get_daterange_str(ds):
-    t = pd.to_datetime(ds.time.values,utc=True)
+def get_daterange_str(ds, time_dim='time'):
+    t = pd.to_datetime(ds[time_dim].values,utc=True)
     return f'{t[0].strftime("%Y%m%d")}-{t[-1].strftime("%Y%m%d")}'
