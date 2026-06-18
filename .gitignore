@@ -1,3 +1,5 @@
 # Python
 notebooks/__pycache__
-data_out/HEFEX3__Obs_RHI_25deg_L2__avg30min_20250806-20250817.nc
+/figures_dismissed/
+/data_out/HEFEX3__ICON_v370_2030_lidar_location_25deg__avg30min_20250806-20250831.nc
+/data_out/HEFEX3__ICON_v370_2030_lidar_location_115deg__avg30min_20250806-20250831.nc
