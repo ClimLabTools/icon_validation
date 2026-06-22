@@ -100,7 +100,7 @@ DOI, Abstract, ...
 
 - AWS Data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596032.svg)](https://doi.org/10.5281/zenodo.19596032)
 - WindRanger lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596272.svg)](https://doi.org/10.5281/zenodo.19596272)
-- Streamline lidar: tba
+- Streamline lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19626880.svg)](https://doi.org/10.5281/zenodo.19626880)
 - UAV: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596612.svg)](https://doi.org/10.5281/zenodo.19596612)
 
 ### ICON Experiments
@@ -111,6 +111,10 @@ DOI, Abstract, ...
 
 ## Contact
 
+For questions regarding the repository or associated publication, please contact: 
+
+[Alexander Georgi](alexander.georgi.1@geo.hu-berlin.de)
+[![ORCID](https://info.orcid.org/wp-content/uploads/2021/12/orcid_16x16.gif)](https://orcid.org/0009-0000-9465-6761)
 
 ## License
 
