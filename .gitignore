@@ -3,3 +3,4 @@ notebooks/__pycache__
 /figures_dismissed/
 /data_out/HEFEX3__ICON_v370_2030_lidar_location_25deg__avg30min_20250806-20250831.nc
 /data_out/HEFEX3__ICON_v370_2030_lidar_location_115deg__avg30min_20250806-20250831.nc
+/data_in/hefex*

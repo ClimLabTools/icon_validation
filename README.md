@@ -12,7 +12,6 @@ statistical evaluation workflows, and figure generation scripts.
 
 ![Glacier Space project logo](data_in/Glacier-Space_Logo_rgb_black.png "Glacier Space")
 
----
 
 ## Repository Structure
 ```
@@ -85,13 +84,11 @@ The figures correspond directly to those shown in the accompanying manuscript.
 This directory stores tabular output generated from the statistical 
 analysis notebooks.
 
----
 
 ## Associated Publication
 
 DOI, Abstract, ...
 
----
 
 ## Citation
 
@@ -111,11 +108,9 @@ DOI, Abstract, ...
 - Grid definitions and external parameters for model domains: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19603818.svg)](https://doi.org/10.5281/zenodo.19603818)
 - HEFEX II and HEFEX III datasets include extracts of simulation outputs used for observation validation.
 
----
 
 ## Contact
 
----
 
 ## License
 
