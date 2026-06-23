@@ -1,7 +1,7 @@
 # Python
 notebooks/__pycache__
 /figures/_dismissed/
-/data_out/icon/HEFEX3__ICON_v370_2030_lidar_location_25deg__avg30min_20250806-20250831.nc
-/data_out/icon/HEFEX3__ICON_v370_2030_lidar_location_115deg__avg30min_20250806-20250831.nc
+/data_out/icon/HEFEX3__ICON_v370_2030_lidar*
+/data_out/obs/HEFEX3__Obs_RHI*
 /data_in/hefex*
 .idea/
