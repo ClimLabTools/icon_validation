@@ -1,5 +1,7 @@
 # Validation of high-resolution ICON-LES in complex terrain using observations from two HEFEX field campaigns
 
+<img align="right" width="300px" src="data_in/Glacier-Space_Logo_rgb_black.png">
+
 This repository contains the data, analysis workflows, and visualization 
 scripts supporting the scientific study evaluating high-resolution 
 atmospheric simulations performed with the ICOsahedral Nonhydrostatic 
@@ -9,9 +11,6 @@ The repository is part of the **Glacier Space** Project.
 The primary purpose of this repository is to ensure transparency, 
 reproducibility, and accessibility of the analysis by providing processed datasets, analysis notebooks, 
 statistical evaluation workflows, and figure generation scripts.
-
-![Glacier Space project logo](data_in/Glacier-Space_Logo_rgb_black.png "Glacier Space")
-
 
 ## Repository Structure
 ```
