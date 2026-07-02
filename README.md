@@ -12,6 +12,11 @@ The primary purpose of this repository is to ensure transparency,
 reproducibility, and accessibility of the analysis by providing processed datasets, analysis notebooks, 
 statistical evaluation workflows, and figure generation scripts.
 
+## Study Area
+
+<img src="figures/png/HEF_Map.png">
+
+
 ## Repository Structure
 ```
 icon_validation/
@@ -95,15 +100,15 @@ analysis notebooks.
 DOI, Abstract, ...
 
 
-## Citation
+## Citation of Datasets
 
 The following datasets are associated with the study and are available on Zenodo. 
 Please cite the relevant DOI when using them in your research.
 
 - **HEFEX II Observations**
-  - AWS Data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19568035.svg)](https://doi.org/10.5281/zenodo.19568035)
+  - AWS Data: <a href="https://doi.org/10.5281/zenodo.21130355"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.21130355.svg" alt="DOI"></a>
 - **HEFEX III Observations**
-  - AWS Data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596032.svg)](https://doi.org/10.5281/zenodo.19596032)
+  - AWS Data: <a href="https://doi.org/10.5281/zenodo.21130441"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.21130441.svg" alt="DOI"></a>
   - WindRanger lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596272.svg)](https://doi.org/10.5281/zenodo.19596272)
   - Streamline lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19626880.svg)](https://doi.org/10.5281/zenodo.19626880)
   - UAV: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596612.svg)](https://doi.org/10.5281/zenodo.19596612)
