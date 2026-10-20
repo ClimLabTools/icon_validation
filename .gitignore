@@ -5,3 +5,8 @@ notebooks/__pycache__
 /data_out/obs/HEFEX3__Obs_RHI*
 /data_in/hefex*
 .idea/
+
+
+figures/*/HEF_RHI_Leo*
+notebooks/fig_rhi_icon_2D-Leo.ipynb
+
