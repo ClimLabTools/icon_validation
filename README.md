@@ -16,6 +16,9 @@ statistical evaluation workflows, and figure generation scripts.
 
 <img src="figures/png/HEF_Map.png">
 
+## ICON Domains
+
+<img src="figures/png/HEF_ICON_Domains.png">
 
 ## Repository Structure
 ```
@@ -106,14 +109,15 @@ The following datasets are associated with the study and are available on Zenodo
 Please cite the relevant DOI when using them in your research.
 
 - **HEFEX II Observations**
-  - AWS Data: <a href="https://doi.org/10.5281/zenodo.21130355"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.21130355.svg" alt="DOI"></a>
+  - AWS Data: <a href="https://doi.org/10.5281/zenodo.24378015"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24378015.svg" alt="DOI"></a>
 - **HEFEX III Observations**
-  - AWS Data: <a href="https://doi.org/10.5281/zenodo.21130441"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.21130441.svg" alt="DOI"></a>
-  - WindRanger lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596272.svg)](https://doi.org/10.5281/zenodo.19596272)
-  - Streamline lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19626880.svg)](https://doi.org/10.5281/zenodo.19626880)
-  - UAV: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19596612.svg)](https://doi.org/10.5281/zenodo.19596612)
+  - AWS Data: <a href="https://doi.org/10.5281/zenodo.24377803"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24377803.svg" alt="DOI"></a>
+  - WindRanger lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24378297.svg)](https://doi.org/10.5281/zenodo.24378297)
+  - Streamline lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24378122.svg)](https://doi.org/10.5281/zenodo.24378122)
+  - UAV: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24378122.svg)](https://doi.org/10.5281/zenodo.24378122)
+  - Fixed-Wing: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22646654.svg)](https://doi.org/10.5281/zenodo.22646654)
 - **ICON Experiments**
-  - Grid definitions and external parameters for model domains: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19603818.svg)](https://doi.org/10.5281/zenodo.19603818)
+  - Grid definitions and external parameters for model domains: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19603817.svg)](https://doi.org/10.5281/zenodo.19603817)
   - **Note**: HEFEX II and HEFEX III datasets include extracts of simulation outputs used for observation validation.
 
 Also check the [Glacier Space Zenodo Community](https://zenodo.org/communities/glacier_space) for additional 
