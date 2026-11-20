@@ -113,7 +113,7 @@ Please cite the relevant DOI when using them in your research.
 - **HEFEX III Observations**
   - AWS Data: <a href="https://doi.org/10.5281/zenodo.24377803"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24377803.svg" alt="DOI"></a>
   - WindRanger lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24378297.svg)](https://doi.org/10.5281/zenodo.24378297)
-  - Streamline lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24378122.svg)](https://doi.org/10.5281/zenodo.24378122)
+  - Streamline lidar: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24378418.svg)](https://doi.org/10.5281/zenodo.24378418)
   - UAV: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24378122.svg)](https://doi.org/10.5281/zenodo.24378122)
   - Fixed-Wing: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22646654.svg)](https://doi.org/10.5281/zenodo.22646654)
 - **ICON Experiments**
